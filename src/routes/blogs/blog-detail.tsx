@@ -25,8 +25,8 @@ export default function BlogDetailPage() {
     <>
       <Helmet>
         <title>{detail?.title}</title>
-        <meta name="description" content={detail?.description ?? ""}></meta>
-        <meta name="keywords" content={detail?.category ?? ""}></meta>
+        <meta name="description" content={detail?.description ?? ""} />
+        <meta name="keywords" content={detail?.category ?? ""} />
       </Helmet>
       <div className="flex h-full min-h-full flex-col space-y-5 bg-gray-200 bg-x-img bg-center">
         <TopNav />
