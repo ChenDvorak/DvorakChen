@@ -13,9 +13,10 @@ dist-ssr
 *.local
 .env
 /src/styles/tailwind.css
+.vscode
 
 # Editor directories and files
-.vscode/*
+.vscode
 !.vscode/extensions.json
 .idea
 .DS_Store
