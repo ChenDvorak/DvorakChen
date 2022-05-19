@@ -1,9 +1,8 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
-import { marked } from "marked";
 import { format as dateFormat } from "date-fns";
-import { TopNav, LoadingSpin } from "~/components";
+import { TopNav, LoadingSpin, Markdown } from "~/components";
 
 import { getBlog, Blog } from "~/models/blog";
 import { Helmet } from "react-helmet";
@@ -42,10 +41,9 @@ export default function BlogDetailPage() {
               ? dateFormat(new Date(detail.createAt), "yyyy-MM-dd")
               : ""}
           </div>
-          <div
-            className="my-5 w-full text-lg"
-            dangerouslySetInnerHTML={{ __html: marked(detail.body ?? "") }}
-          ></div>
+          <div className="my-5 w-full text-lg">
+            <Markdown>{detail.body ?? ""}</Markdown>
+          </div>
         </div>
       </div>
     </>

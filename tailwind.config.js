@@ -9,13 +9,14 @@ module.exports = {
       text: "var(--color-text)",
       bg: "var(--color-bg)",
       red: colors.red,
+      yellow: colors.yellow,
       gray: colors.gray,
       white: colors.white,
     },
     extend: {
       backgroundImage: {
         snow: "url('/assets/snow.jpg')",
-        'x-img': "url('/x-img.svg')",
+        "x-img": "url('/x-img.svg')",
       },
     },
   },

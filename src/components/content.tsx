@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 
-import { marked } from "marked";
+import { Markdown } from "~/components";
 
 enum contentActivedType {
   edit,
@@ -85,15 +85,11 @@ export function Content(
           onKeyDown={keyDown}
         ></textarea>
       ) : (
-        <div
-          className="w-full rounded-md p-3 ring-1"
-          dangerouslySetInnerHTML={{
-            __html:
-              type == contentActivedType.preview
-                ? marked(contentRef.current)
-                : "",
-          }}
-        ></div>
+        <div className="w-full rounded-md p-3 ring-1">
+          <Markdown>
+            {type == contentActivedType.preview ? contentRef.current : ""}
+          </Markdown>
+        </div>
       )}
     </div>
   );
