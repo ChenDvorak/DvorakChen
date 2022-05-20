@@ -1,7 +1,7 @@
 const colors = require("tailwindcss/colors");
 
 module.exports = {
-  content: ["./src/**/*.{ts,tsx,jsx,js}"],
+  content: ["./index.html", "./src/**/*.{ts,tsx,jsx,js}"],
   theme: {
     colors: {
       primary: "var(--color-primary)",
@@ -15,7 +15,8 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        snow: "url('/assets/snow.jpg')",
+        'snow-640-487': "url('/assets/snow-640-487.jpg')",
+        'snow-1920-1463': "url('/assets/snow-1920-1463.jpg')",
         "x-img": "url('/x-img.svg')",
       },
     },

@@ -97,7 +97,7 @@ export function Content(
   function keyDown(event: React.KeyboardEvent<HTMLTextAreaElement>) {
     if (event.key === "Tab") {
       event.preventDefault();
-      const indent = "        ";
+      const indent = "    ";
       const e = event.currentTarget;
       const start = e.selectionStart;
       e.value =

@@ -1,24 +1,35 @@
 import React from "react";
-import { NavLink, useSearchParams, useNavigate } from "react-router-dom";
+import { NavLink, useSearchParams } from "react-router-dom";
 
 import { Blog, getBlogs } from "~/models/blog";
-import { TopNav } from "~/components";
+import { TopNav, LoadingSpin } from "~/components";
 import { format as dateFormat } from "date-fns";
 
+type BlogsState = {
+  blogs: Blog[];
+  loading: boolean;
+};
+
 export default function ArticlesPage() {
-  const [blogs, setBlogs] = React.useState([] as Blog[]);
+  const [blogsState, setBlogsState] = React.useState({
+    blogs: [],
+    loading: true,
+  } as BlogsState);
   const [search, setSearchParams] = useSearchParams();
   const s = search.get("s") ?? "";
 
   React.useEffect(() => {
     (async () => {
       const data = await getBlogs(s);
-      setBlogs(data);
+      setBlogsState({
+        loading: false,
+        blogs: data,
+      });
     })();
   }, [s]);
 
   return (
-    <div className="flex h-full min-h-full flex-col space-y-5 bg-gray-200 bg-[url(/articles-list-bg.svg)] bg-center">
+    <div className="flex h-full min-h-screen flex-col space-y-5 bg-gray-200 bg-[url(/articles-list-bg.svg)] bg-center">
       <TopNav />
       <div className="text-center">
         <input
@@ -37,7 +48,12 @@ export default function ArticlesPage() {
       </div>
       <div className="xl:6/12 mx-auto h-full w-11/12 rounded bg-white bg-opacity-70 p-5 shadow-lg md:w-10/12 lg:w-8/12 xl:w-5/12">
         <ul className="mx-auto max-w-xl space-y-2 text-lg">
-          {blogs.map((blog) => (
+          {blogsState.loading && (
+            <div className="flex justify-center">
+              <LoadingSpin className="animate-spin h-5 w-5 text-primary stroke-primary" />
+            </div>
+          )}
+          {blogsState.blogs.map((blog) => (
             <li
               key={blog.id}
               className="rounded-lg px-3 py-1 hover:bg-white hover:shadow-lg hover:ring-1 hover:ring-opacity-25"
@@ -60,17 +76,16 @@ export default function ArticlesPage() {
                   </NavLink>
                 </span>
                 <span className="self-end text-sm">
-                  {dateFormat(
-                    new Date(blog.createAt.toString()),
-                    "yyyy-MM-dd"
-                  )}
+                  {dateFormat(new Date(blog.createAt.toString()), "yyyy-MM-dd")}
                 </span>
               </div>
             </li>
           ))}
         </ul>
         <div className="text-center text-lg">
-          {blogs.length ? null : <div>找不到有关 {s} 的博文</div>}
+          {blogsState.blogs.length || blogsState.loading ? null : (
+            <div>找不到有关 {s} 的博文</div>
+          )}
         </div>
       </div>
     </div>
