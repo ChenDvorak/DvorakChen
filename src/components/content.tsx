@@ -86,9 +86,9 @@ export function Content(
         ></textarea>
       ) : (
         <div className="w-full rounded-md p-3 ring-1">
-          <Markdown>
-            {type == contentActivedType.preview ? contentRef.current : ""}
-          </Markdown>
+          <Markdown
+            value={type == contentActivedType.preview ? contentRef.current : ""}
+          />
         </div>
       )}
     </div>

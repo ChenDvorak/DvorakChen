@@ -27,7 +27,7 @@ export default function BlogDetailPage() {
         <meta name="description" content={detail?.description ?? ""} />
         <meta name="keywords" content={detail?.category ?? ""} />
       </Helmet>
-      <div className="flex h-full min-h-full flex-col space-y-5 bg-gray-200 bg-x-img bg-center">
+      <div className="flex min-h-full flex-col space-y-5 bg-gray-200 bg-x-img bg-center pb-10">
         <TopNav />
         <div className="mx-auto flex flex-col items-center rounded bg-bg py-5 px-8 shadow-lg sm:w-11/12 md:w-10/12 xl:w-8/12">
           <div className="my-5 text-4xl">
@@ -42,7 +42,7 @@ export default function BlogDetailPage() {
               : ""}
           </div>
           <div className="my-5 w-full text-lg">
-            <Markdown>{detail.body ?? ""}</Markdown>
+            <Markdown value={detail.body ?? ""} />
           </div>
         </div>
       </div>

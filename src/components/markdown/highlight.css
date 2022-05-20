@@ -1,0 +1,4 @@
+/* override default highlight.js style here */
+.hljs-string {
+  color: #c46500 !important;
+}

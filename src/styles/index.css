@@ -19,16 +19,5 @@ code {
   --color-secondary: rgb(200, 200, 255);
   --color-text: rgb(32, 32, 32);
   --color-bg: white;
-
   color: var(--color-text);
-
-  height: 100%;
-}
-
-body {
-  height: 100%;
-}
-
-#app {
-  height: 100%;
 }
