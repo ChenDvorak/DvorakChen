@@ -13,7 +13,7 @@ export default function AdminPage() {
       <Helmet>
         <title>Dvorak Chen 后台管理</title>
       </Helmet>
-      <main className="flex h-full ">
+      <main className="flex h-full">
         <nav
           className="f-full flex
         w-64 flex-col overflow-x-clip border-r border-r-secondary

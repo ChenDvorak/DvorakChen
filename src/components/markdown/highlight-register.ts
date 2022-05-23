@@ -6,12 +6,13 @@ import xml from "highlight.js/lib/languages/xml";
 import swift from "highlight.js/lib/languages/swift";
 import json from "highlight.js/lib/languages/json";
 import java from "highlight.js/lib/languages/java";
-import "highlight.js/styles/github.css";
-
-import "./highlight.css";
+import bash from "highlight.js/lib/languages/bash";
 
 export function register(hljs: HLJSApi, languageName: string) {
   switch (languageName) {
+    case "bash":
+      hljs.registerLanguage("bash", bash);
+      break;
     case "css":
       hljs.registerLanguage("css", css);
       break;

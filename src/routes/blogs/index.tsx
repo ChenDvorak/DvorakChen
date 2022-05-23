@@ -47,7 +47,7 @@ export default function ArticlesPage() {
         />
       </div>
       <div className="xl:6/12 mx-auto h-full w-11/12 rounded bg-white bg-opacity-70 p-5 shadow-lg md:w-10/12 lg:w-8/12 xl:w-5/12">
-        <ul className="mx-auto max-w-xl space-y-2 text-lg">
+        <ul className="mx-auto space-y-2 text-lg">
           {blogsState.loading && (
             <div className="flex justify-center">
               <LoadingSpin className="animate-spin h-5 w-5 text-primary stroke-primary" />

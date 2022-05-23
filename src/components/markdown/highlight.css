@@ -2,3 +2,9 @@
 .hljs-string {
   color: #c46500 !important;
 }
+.hljs-selector-class {
+  color: #d87000 !important;
+}
+.hljs-attribute {
+  color: #4c83ff !important;
+}

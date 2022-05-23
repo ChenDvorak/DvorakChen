@@ -90,7 +90,7 @@ export default function BlogDetailPage() {
           }}
         ></textarea>
         <div className="w-full">
-          <div className="mx-auto mt-10 w-11/12 text-lg sm:w-10/12 lg:w-8/12">
+          <div className="mx-auto mt-10 w-11/12 text-lg sm:w-10/12">
             <Content
               onChange={(contentValue) => {
                 setBlog({
