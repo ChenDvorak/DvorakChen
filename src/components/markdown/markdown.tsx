@@ -70,6 +70,15 @@ const walkTokens = (token: marked.Token) => {
       return { "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;" }[c] ?? c;
     });
   }
+  if (token.type === "codespan") {
+    if (
+      token.raw.length >= 2 &&
+      token.raw.startsWith("`") &&
+      token.raw.endsWith("`")
+    ) {
+      token.text = token.raw.substring(1, token.raw.length - 1);
+    }
+  }
 };
 
 const renderer = {
