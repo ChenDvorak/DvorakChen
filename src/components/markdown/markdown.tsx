@@ -113,7 +113,7 @@ const renderer = {
   },
   codespan: (code: string) => {
     const html = (
-      <code className="bg-gray-800 text-orange-400 text-opacity-90 px-2 rounded-md">
+      <code className="bg-gray-200 text-gray-800 text-opacity-90 px-2 rounded-md">
         {code}
       </code>
     );
@@ -158,6 +158,48 @@ const renderer = {
       >
         {text}
       </a>
+    );
+    return renderToString(html);
+  },
+  table: (header: string, body: string) => {
+    const headerHTML = (
+      <thead dangerouslySetInnerHTML={{ __html: header }}></thead>
+    );
+    const bodyHTML = <tbody dangerouslySetInnerHTML={{ __html: body }}></tbody>;
+    const html = (
+      <table className="border-collapse table-fixed border">
+        {headerHTML}
+        {bodyHTML}
+      </table>
+    );
+    return renderToString(html);
+  },
+  tablerow: (content: string) => {
+    const html = (
+      <tr
+        className="even:bg-gray-100"
+        dangerouslySetInnerHTML={{ __html: content }}
+      ></tr>
+    );
+    return renderToString(html);
+  },
+  tablecell: (
+    content: string,
+    flags: {
+      header: boolean;
+      align: "center" | "left" | "right" | null;
+    }
+  ) => {
+    const html = flags.header ? (
+      <th
+        className="p-1 border"
+        dangerouslySetInnerHTML={{ __html: content }}
+      ></th>
+    ) : (
+      <td
+        className="p-1 border"
+        dangerouslySetInnerHTML={{ __html: content }}
+      ></td>
     );
     return renderToString(html);
   },
