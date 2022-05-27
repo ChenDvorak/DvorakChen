@@ -134,6 +134,33 @@ const renderer = {
     );
     return renderToString(html);
   },
+  list: (body: string, ordered: boolean, start: number) => {
+    const html = ordered ? (
+      <ul
+        className="list-decimal pl-16 space-y-4 my-3"
+        dangerouslySetInnerHTML={{ __html: body }}
+      ></ul>
+    ) : (
+      <ul
+        className="list-disc pl-16 space-y-4 my-3"
+        dangerouslySetInnerHTML={{ __html: body }}
+      ></ul>
+    );
+    return renderToString(html);
+  },
+  link: (href: string | null, title: string | null, text: string) => {
+    const html = (
+      <a
+        className="underline"
+        target="_blank"
+        href={href ?? ""}
+        title={title ?? ""}
+      >
+        {text}
+      </a>
+    );
+    return renderToString(html);
+  },
 } as marked.Renderer;
 
 marked.use({
