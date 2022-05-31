@@ -1,11 +1,10 @@
 import { Link, useNavigate } from "react-router-dom";
-import React, { LegacyRef } from "react";
+import React from "react";
 
 function useLoadImg(ref: React.RefObject<HTMLElement>) {
   React.useEffect(() => {
     const img = new Image();
     img.onload = function () {
-      // ref.current?.classList?.remove("bg-snow-640-487");
       ref.current?.classList?.add("bg-snow-1920-1463");
     };
     img.src = "/assets/snow-1920-1463.jpg";

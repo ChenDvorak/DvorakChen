@@ -20,4 +20,7 @@ code {
   --color-text: rgb(32, 32, 32);
   --color-bg: white;
   color: var(--color-text);
+
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
 }

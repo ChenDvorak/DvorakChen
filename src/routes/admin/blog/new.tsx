@@ -6,6 +6,7 @@ import { createBlog, Blog } from "~/models";
 export default function NewBlogPage() {
   const navigate = useNavigate();
 
+  const [loading, setLoading] = React.useState(false);
   const titleRef = React.useRef<HTMLInputElement>(null);
   const categoryRef = React.useRef<HTMLInputElement>(null);
   const descriptionRef = React.useRef<HTMLTextAreaElement>(null);
@@ -45,8 +46,10 @@ export default function NewBlogPage() {
         />
         <div className="self-end">
           <button
-            className="rounded-md bg-primary px-3 py-2 text-bg hover:ring hover:ring-offset-2 focus:ring-primary focus:ring-offset-2"
+            className="rounded-md bg-primary px-3 py-2 text-bg hover:ring hover:ring-offset-2 focus:ring-primary focus:ring-offset-2
+            disabled:bg-gray-400 disabled:text-gray-50 disabled:ring-gray-400"
             onClick={handleCreate}
+            disabled={loading}
           >
             提交
           </button>
@@ -56,16 +59,20 @@ export default function NewBlogPage() {
   );
 
   async function handleCreate() {
+    setLoading(true);
     if (!titleRef.current?.value) {
       titleRef.current?.focus();
+      setLoading(false);
       return;
     }
     if (!categoryRef.current?.value) {
       categoryRef.current?.focus();
+      setLoading(false);
       return;
     }
     if (!descriptionRef.current?.value) {
       descriptionRef.current?.focus();
+      setLoading(false);
       return;
     }
 

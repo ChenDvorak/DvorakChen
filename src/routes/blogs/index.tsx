@@ -29,7 +29,7 @@ export default function ArticlesPage() {
   }, [s]);
 
   return (
-    <div className="flex h-full min-h-screen flex-col space-y-5 bg-gray-200 bg-[url(/articles-list-bg.svg)] bg-center">
+    <div className="flex h-full min-h-screen flex-col pb-8 space-y-5 bg-gray-200 bg-[url(/articles-list-bg.svg)] bg-center">
       <TopNav />
       <div className="text-center">
         <input
