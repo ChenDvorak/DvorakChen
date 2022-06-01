@@ -11,6 +11,9 @@ function useLoadImg(ref: React.RefObject<HTMLElement>) {
   }, []);
 }
 
+/**
+ * 首页
+ */
 export default function IndexPage() {
   const navigate = useNavigate();
   const bgRef = React.useRef<HTMLDivElement>(null);

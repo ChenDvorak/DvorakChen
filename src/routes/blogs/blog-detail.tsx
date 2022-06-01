@@ -6,6 +6,9 @@ import { getBlog, Blog } from "~/models/blog";
 import { Helmet } from "react-helmet";
 import getImage from "get-md-image";
 
+/**
+ * 客户端的博文详情页
+ */
 export default function BlogDetailPage() {
   const { blogId } = useParams();
   const [detail, setDetail] = React.useState({} as Blog);

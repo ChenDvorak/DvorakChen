@@ -5,6 +5,10 @@ import { Helmet } from "react-helmet";
 
 import { logout } from "~/models";
 
+/**
+ * 后台管理页面
+ * 需要登录才能进，所以进入这个页面时会检查登录了没有，如果没有登录，会重定向到登录页面
+ */
 export default function AdminPage() {
   const checked = useEnsureLoggedIn();
 
@@ -43,6 +47,8 @@ export default function AdminPage() {
       </main>
     </>
   ) : (
+    // 因为验证登录需要一个过程, 在验证的过程中就显示白屏
+    // 只有确认登录了才显示界面
     <></>
   );
 }

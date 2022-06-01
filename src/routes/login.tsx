@@ -1,7 +1,12 @@
+/**
+ * There is a Login page.
+ * Need login while try to access admin page
+ */
+
 import React from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 
-import { API_BASE_ADDRESS, login } from "~/models";
+import { login } from "~/models";
 
 export default function LoginPage() {
   const [searchParams] = useSearchParams();

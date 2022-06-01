@@ -1,4 +1,6 @@
 /// <reference types="vite/client" />
+
+// get-md-image 包没有 types，只能自己声明
 declare module "get-md-image" {
   const getImage: (text: string) =>
     | {

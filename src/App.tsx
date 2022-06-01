@@ -11,6 +11,9 @@ import Blogs from "./routes/blogs/index";
 import BlogDetail from "./routes/blogs/blog-detail";
 import LoginPage from "./routes/login";
 
+import "./styles/index.css";
+import "./styles/tailwind.css";
+
 function App() {
   return (
     <Routes>

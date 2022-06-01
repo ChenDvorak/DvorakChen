@@ -10,6 +10,10 @@ type BlogsState = {
   loading: boolean;
 };
 
+/**
+ * 这个是客户端的博文列表
+ * 博文数量没有到需要做分页的地步
+ */
 export default function ArticlesPage() {
   const [blogsState, setBlogsState] = React.useState({
     blogs: [],
